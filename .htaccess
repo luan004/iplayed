@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Redireciona todas as rotas que começam com /api para /api/index.php
+RewriteCond %{REQUEST_URI} ^/api
+RewriteRule ^api/(.*)$ api/index.php [L,QSA]
+
+# Redireciona a rota raiz (/) para /public_html/index.html
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ public_html/index.html [L,QSA]
+
+# Permite o acesso a arquivos e diretórios existentes
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redireciona todas as outras rotas para /public_html/index.html
+RewriteCond %{REQUEST_URI} !^/api
+RewriteRule ^(.*)$ public_html/index.html [L,QSA]
+
+# Impede a listagem de diretórios
+Options -Indexes
