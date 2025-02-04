@@ -30,7 +30,7 @@ class NavBar extends LitElement
                             </ul>
                             <form class="d-flex" role="search">
                                 <input class="shadow-sm form-control rounded-pill border-0 bg-secondary bg-opacity-25" type="search" placeholder="Buscar..." aria-label="Buscar">
-                                <div class="p-4 border position-absolute">
+                                <div class="hotsearch-box p-4 border position-absolute">
 
                                 </div>
                             </form>
